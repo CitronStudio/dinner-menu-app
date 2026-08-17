@@ -10,7 +10,7 @@
 <div class="app">
   <header class="app-header">
     <h1>今夜なに作る？</h1>
-    <p class="subtitle">旬の食材と近所の特売から、今日の献立を提案します</p>
+    <p class="subtitle">旬の食材と今日の特売品から、今日の献立を提案します</p>
   </header>
 
   <main>
@@ -21,26 +21,22 @@
     </section>
 
     <section class="card" id="section-sales">
-      <h2><span class="icon">🏷️</span>近所の特売情報</h2>
-      <div class="sales-body" id="sales-body">
-        <p class="hint">まだ取得していません。</p>
+      <h2><span class="icon">🏷️</span>今日の特売品</h2>
+      <p class="hint">近所のスーパーのチラシ等を見て、特売になっている食材を入力してください（例：豚肉, きゃべつ, もやし）</p>
+      <textarea id="sales-input" rows="2" placeholder="例）豚肉, キャベツ, もやし"></textarea>
+    </section>
+
+    <section class="card" id="section-time">
+      <h2><span class="icon">⏱️</span>調理時間の目安</h2>
+      <div class="chip-group" id="time-chips">
+        <button type="button" class="chip selected" data-time="">こだわらない</button>
+        <button type="button" class="chip" data-time="15">15分以内</button>
+        <button type="button" class="chip" data-time="30">30分以内</button>
       </div>
-      <button class="btn btn-secondary" id="btn-refresh-sales">特売情報を取得</button>
-    </section>
-
-    <section class="card" id="section-ng">
-      <h2><span class="icon">🚫</span>NG項目</h2>
-      <p class="hint">苦手な食材や避けたい調理法を文章で書いておくと、提案に反映されます（例：揚げ物はNG、パクチーが苦手、辛いものは控えめに）</p>
-      <textarea id="ng-input" rows="3" placeholder="例）揚げ物はNG。子どもが辛いものを食べられないので控えめに。"></textarea>
-    </section>
-
-    <section class="card" id="section-extra">
-      <h2><span class="icon">✏️</span>今日の条件（任意）</h2>
-      <textarea id="extra-input" rows="2" placeholder="例）作る時間は30分以内。今日は魚の気分。人数は4人分。"></textarea>
     </section>
 
     <div class="cta-row">
-      <button class="btn btn-primary" id="btn-suggest">献立を提案してもらう</button>
+      <button class="btn btn-primary" id="btn-suggest">献立を提案する</button>
     </div>
 
     <section class="card" id="section-result" hidden>
@@ -54,7 +50,6 @@
   </footer>
 </div>
 
-<script src="js/config.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
