@@ -53,5 +53,15 @@
   { "id": "r052", "title": "豆腐と豚肉の中華あんかけ丼", "summary": "とろみあんでご飯がすすむ。", "main_ingredients": ["豆腐", "豚肉"], "category": "ご飯もの", "time_minutes": 20 },
   { "id": "r053", "title": "牛肉とごぼうの柳川風", "summary": "卵でとじた滋味深い一品。", "main_ingredients": ["牛肉", "ごぼう", "卵"], "category": "煮物", "time_minutes": 20 },
   { "id": "r054", "title": "白菜と豚肉のとろみ炒め", "summary": "片栗粉でとろみをつけた優しい味の炒め物。", "main_ingredients": ["白菜", "豚肉"], "category": "炒め物", "time_minutes": 15 },
-  { "id": "r055", "title": "にんじんしりしり", "summary": "卵と炒めた沖縄の定番副菜。", "main_ingredients": ["にんじん", "卵"], "category": "炒め物", "time_minutes": 10 }
+  { "id": "r055", "title": "にんじんしりしり", "summary": "卵と炒めた沖縄の定番副菜。", "main_ingredients": ["にんじん", "卵"], "category": "炒め物", "time_minutes": 10 },
+  { "id": "r056", "title": "みょうがと豚肉の甘酢炒め", "summary": "みょうがの香りを活かしたさっぱり炒め。", "main_ingredients": ["みょうが", "豚肉"], "category": "炒め物", "time_minutes": 15 },
+  { "id": "r057", "title": "銀杏の塩炒り", "summary": "殻を剥いて塩で炒るだけの簡単おつまみ副菜。", "main_ingredients": ["銀杏"], "category": "その他", "time_minutes": 10 },
+  { "id": "r058", "title": "栗ご飯", "summary": "炊飯器で炊くだけの秋の定番ご飯もの。", "main_ingredients": ["栗", "もち米"], "category": "ご飯もの", "time_minutes": 50 },
+  { "id": "r059", "title": "ふぐの唐揚げ", "summary": "淡白なふぐの身をカラッと揚げる。", "main_ingredients": ["ふぐ"], "category": "揚げ物", "time_minutes": 20 },
+  { "id": "r060", "title": "あんこう鍋", "summary": "冬の味覚あんこうを白菜と一緒に鍋で。", "main_ingredients": ["あんこう", "白菜"], "category": "鍋", "time_minutes": 30 },
+  { "id": "r061", "title": "きんきの煮付け", "summary": "甘辛いタレでじっくり煮付ける高級魚。", "main_ingredients": ["きんき"], "category": "煮物", "time_minutes": 25 },
+  { "id": "r062", "title": "さよりの塩焼き", "summary": "上品な白身をシンプルに塩焼きで。", "main_ingredients": ["さより"], "category": "焼き物", "time_minutes": 15 },
+  { "id": "r063", "title": "いさきの塩焼き", "summary": "旬のいさきをシンプルに塩焼きで。", "main_ingredients": ["いさき"], "category": "焼き物", "time_minutes": 15 },
+  { "id": "r064", "title": "あゆの塩焼き", "summary": "夏の清流魚を丸ごと塩焼きに。", "main_ingredients": ["あゆ"], "category": "焼き物", "time_minutes": 15 },
+  { "id": "r065", "title": "いくら丼", "summary": "ご飯にいくらをたっぷりのせるだけ。", "main_ingredients": ["いくら"], "category": "ご飯もの", "time_minutes": 10 }
 ]

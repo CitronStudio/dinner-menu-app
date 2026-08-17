@@ -138,19 +138,42 @@
     const saleTokens = parseSaleTokens(el.salesInput.value);
     const timeLimit = state.timeLimit ? Number(state.timeLimit) : null;
 
-    let candidates = state.recipesAll
-      .filter((r) => !timeLimit || r.time_minutes <= timeLimit)
-      .map((r) => ({ recipe: r, ...scoreRecipe(r, seasonalPicks, saleTokens) }));
+    const scoredAll = state.recipesAll.map((r) => ({ recipe: r, ...scoreRecipe(r, seasonalPicks, saleTokens) }));
+    const withinTime = (c) => !timeLimit || c.recipe.time_minutes <= timeLimit;
+
+    const seasonalByName = new Map(state.seasonalAll.map((i) => [i.name, i]));
+    const nonFruitPicks = seasonalPicks.filter((name) => {
+      const info = seasonalByName.get(name);
+      return !info || info.category !== "果物";
+    });
+
+    // 選んだ旬の食材（果物以外）は、特売品マッチのスコア争いに負けて漏れないよう、
+    // 1件ずつ最良のレシピを予約枠として確保する。
+    const usedIds = new Set();
+    const guaranteed = [];
+    nonFruitPicks.forEach((pick) => {
+      const matchesPick = (c) => c.seasonalHits.includes(pick) && !usedIds.has(c.recipe.id);
+      let pool = scoredAll.filter((c) => matchesPick(c) && withinTime(c));
+      if (pool.length === 0) {
+        pool = scoredAll.filter(matchesPick); // 時間の目安に合うものが無ければ、時間を無視してでも確保する
+      }
+      if (pool.length === 0) return;
+      pool.sort((a, b) => b.score - a.score || a.recipe.time_minutes - b.recipe.time_minutes);
+      guaranteed.push(pool[0]);
+      usedIds.add(pool[0].recipe.id);
+    });
 
     const hasConditions = seasonalPicks.length > 0 || saleTokens.length > 0;
-
+    let filler = scoredAll.filter((c) => withinTime(c) && !usedIds.has(c.recipe.id));
     if (hasConditions) {
-      candidates = candidates.filter((c) => c.score > 0);
-      candidates.sort((a, b) => b.score - a.score || a.recipe.time_minutes - b.recipe.time_minutes);
-      candidates = candidates.slice(0, 6);
+      filler = filler.filter((c) => c.score > 0);
+      filler.sort((a, b) => b.score - a.score || a.recipe.time_minutes - b.recipe.time_minutes);
     } else {
-      candidates = shuffle(candidates).slice(0, 5);
+      filler = shuffle(filler);
     }
+
+    const targetTotal = Math.max(hasConditions ? 6 : 5, guaranteed.length);
+    const candidates = [...guaranteed, ...filler.slice(0, targetTotal - guaranteed.length)];
 
     renderRecipes(candidates);
   }
