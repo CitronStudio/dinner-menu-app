@@ -1,0 +1,213 @@
+:root {
+  --bg: #faf6f0;
+  --card-bg: #ffffff;
+  --ink: #2e2620;
+  --ink-soft: #6b5f54;
+  --accent: #d97a3c;
+  --accent-dark: #b95f26;
+  --accent-soft: #f3e0ce;
+  --line: #e8ddd0;
+  --good: #4a7c59;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 1.6rem;
+  margin: 0 0 6px;
+  color: var(--accent-dark);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.card h2 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon { font-size: 1.1em; }
+
+.hint {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin: 0 0 10px;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.chip.selected {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+  color: white;
+}
+
+.chip .cat-tag {
+  opacity: 0.6;
+  font-size: 0.75em;
+  margin-left: 3px;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+textarea:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+
+.btn-secondary {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+}
+
+.cta-row {
+  margin: 20px 0;
+}
+
+.sales-body { margin-bottom: 12px; }
+
+.sale-store {
+  margin-bottom: 10px;
+}
+
+.sale-store h3 {
+  font-size: 0.9rem;
+  margin: 0 0 4px;
+  color: var(--accent-dark);
+}
+
+.sale-store ul {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: 0.85rem;
+}
+
+.sale-store .error {
+  color: #a33;
+  font-size: 0.85rem;
+}
+
+#result-body {
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+}
+
+.recipe-block {
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+.recipe-block:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+.recipe-block h3 {
+  margin: 0 0 4px;
+  color: var(--accent-dark);
+}
+
+.app-footer {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  margin-top: 30px;
+}
+
+.app-footer a { color: var(--accent-dark); }
+
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: -0.15em;
+  margin-right: 6px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
